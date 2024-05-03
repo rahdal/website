@@ -1,10 +1,15 @@
 html {
   font-size: 62.5%;
+  font-family:sans-serif;
 }
 
 body {
   font-size: 1.6rem;
   color: #000;
+}
+
+.logo{
+  padding-top: 10%;
 }
 
 header {
@@ -13,6 +18,7 @@ header {
 
 nav {
   text-align: right;
+  padding-top: 0%;
 }
 
 nav a {
@@ -111,7 +117,7 @@ article .header {
 
 @media (min-width: 640px) {
   body {
-    width: 60rem;
+    width: 80rem;
     margin: 0 auto;
     padding: 0;
   }
