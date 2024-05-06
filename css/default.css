@@ -76,6 +76,8 @@ article .header {
   text-decoration: none;
 }
 
+
+
 @media (max-width: 319px) {
   body {
     width: 90%;
