@@ -48,6 +48,11 @@ p{
   color: #555;
 }
 
+li{
+  color: #555;
+}
+
+
 .container{
   display: inline-block;
 }
