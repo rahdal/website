@@ -2,12 +2,10 @@
 title: Experience
 ---
 
-### Capital One
-*June 2024 - Aug. 2024*
+### Capital One <span style="font-size: small; color: #555">June 2024 - Aug. 2024</span>
 
 - ???
 
-### MagLab
-*May 2023 - Aug. 2024*
+### MagLab <span style="font-size: small; color: #555">May 2023 - Aug. 2023</span>
 
-- Deployed a React web application that allows researchers to access worldwide magnetometer data recorded by MagLab.
+- Deployed a React web application that allows researchers to access magnetometer data.
