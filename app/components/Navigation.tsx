@@ -4,14 +4,11 @@ export default function Navigation() {
       <a href="/" className="text-white hover:opacity-80 transition-opacity">
         home
       </a>
-      <a href="/background" className="text-white hover:opacity-80 transition-opacity">
-        background
+      <a href="/stuff" className="text-white hover:opacity-80 transition-opacity">
+        stuff
       </a>
-      <a href="/books" className="text-white hover:opacity-80 transition-opacity">
-        books
-      </a>
-      <a href="/blog" className="text-white hover:opacity-80 transition-opacity">
-        blog
+      <a href="/notes" className="text-white hover:opacity-80 transition-opacity">
+        notes
       </a>
     </nav>
   );

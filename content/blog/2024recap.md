@@ -1,0 +1,37 @@
+---
+title: "2024 Recap"
+date: "December 29, 2024"
+description: "on the map"
+---
+
+I think a lot of this year was building on stuff that I laid the foundation for
+in previous years.
+
+**1. watched Michigan win a natty**
+
+I've been a Michigan football fan since ~2011. At this point, I've basically seen everything. Pain with rich rod/hoke, hope with harbaugh, pain again, then finally
+reaching the highest peak. Lowkey like semi-retired as a michigan fan but still into cfb.
+
+**2. spent 3 months in Richmond working for Capital One**
+
+Capital One actually pulled me out of the trenches this year. I was unemployed until March and was literally praying all of spring break that the interview went well. I got the call in Florida and it was a pretty surreal feeling. I don't think I've wanted something that bad in a minute. Summer was a lot of fun, shoutout to kush (goat roommate), shrey, hanson, and everyone else I met in Richmond (missing a lot of ppl don't get mad at me). Richmond is actually pretty nice as a city, and the main downside for me was the weather. I could see myself living there, def on the come up. Work was pretty chill but nothing really memorable. I wasn't super interested in the stuff I was doing but the team vibes were elite. I also finally used a database for the first time lmao.
+
+**3. survived EECS 482**
+
+Probably the most hyped EECS class for CS majors at Michigan. I can now confirm that there is a reason for the hype. Project 2 was probably the most interesting project I've worked on, but I also hated my life during fall break due to it. Rest of the class was smooth. Shoutout to Jared and Robert for being great teammates.
+
+**4. posted 2 TikToks**
+
+I started cooking on TikTok this year. Nothing serious, but I've always been semi-interested in videography so this was fun. Spent like 2 hours going to the Eigen Cafe for a 1 minute video 💀.
+
+**5. signed palantir for summer 25 in NYC**
+
+Was chilling in my bed on a Saturday morning in October when the gmail notification hit. Really excited about Palantir and NYC. Wasn't fully sold on FDSE back then, but I'm really excited for it now. Also kinda a AGI hedge.
+
+**6. started as VP of Recruiting for MIG**
+
+MIG has done a lot for me since I joined, both professionally and socially. VP Recruiting has always been on my radar. I think finding talent and constructing a new member class is a super interesting challenge and one that you don't really get the opportunity to do regularly. Really excited about this.
+
+I also made/strengthened a lot of connections this year, which is probably the overall highlight of the year. 
+
+2025 I start contributing to society

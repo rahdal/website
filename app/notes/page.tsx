@@ -11,9 +11,9 @@ export default function BlogPage() {
 
       {/* Main content */}
       <main className="max-w-xl w-full mt-12 relative">
-        <h1 className="text-2xl font-semibold mb-8">blog</h1>
+        <h1 className="text-2xl font-semibold mb-8">notes</h1>
 
-        <p className="text-gray-400 mb-12">a collection of random passionate thoughts.</p>
+        <p className="text-gray-400 mb-12">notes/updates on random things</p>
 
         <div className="space-y-8">
           {posts.map((post, index) => (
@@ -21,7 +21,7 @@ export default function BlogPage() {
               <div className="text-gray-400">{post.date}</div>
               <div>
                 <h2 className="text-white mb-1">
-                  <a href={`/blog/${post.slug}`} className="hover:opacity-80 transition-opacity">
+                  <a href={`/notes/${post.slug}`} className="hover:opacity-80 transition-opacity">
                     {post.title}
                   </a>
                 </h2>

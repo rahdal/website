@@ -1,5 +1,6 @@
 import Navigation from './components/Navigation';
 import SpotifyRecent from './components/SpotifyRecent';
+import { Github, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
 
       {/* Main content */}
       <main className="max-w-xl w-full mt-12 relative">
-        <h1 className="text-2xl font-semibold mb-8">rahul dalvi</h1>
+        <h1 className="text-2xl font-semibold mb-8">Rahul Dalvi</h1>
 
         <div className="space-y-6 mb-12">
           <p>currently studying computer science at umich.</p>
@@ -25,18 +26,21 @@ export default function Home() {
         </div>
 
         {/* Spotify Recently Played */}
-        <SpotifyRecent />
 
         {/* Social links */}
         <div className="flex space-x-6 mt-12">
-          <a href="https://github.com/rahdal" target="_blank" className="text-white flex items-center">
-            <span className="mr-1">↗</span> github
+          <a href="https://instagram.com/rdalvi_" className="text-white flex items-center" target="_blank">
+            <Instagram className="w-5 h-5 mr-1" /> 
           </a>
-          <a href="https://medium.com" className="text-white flex items-center">
-            <span className="mr-1">↗</span> medium
+          <a href="https://x.com/rdalvi_" className="text-white flex items-center" target="_blank">
+            <Twitter className="w-5 h-5 mr-1" /> 
           </a>
-          <a href="https://linkedin.com" className="text-white flex items-center">
-            <span className="mr-1">↗</span> linkedin
+
+          <a href="https://github.com/rahdal" className="text-white flex items-center" target="_blank">
+            <Github className="w-5 h-5 mr-1" /> 
+          </a>
+          <a href="https://linkedin.com/in/rahdal" className="text-white flex items-center" target="_blank">
+            <Linkedin className="w-5 h-5 mr-1" /> 
           </a>
         </div>
       </main>

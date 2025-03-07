@@ -11,37 +11,65 @@ const RECENTLY_PLAYED_ENDPOINT = 'https://api.spotify.com/v1/me/player/recently-
 
 // Get a new access token using the refresh token
 async function getAccessToken() {
-  const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
-  
-  const response = await fetch(TOKEN_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${basic}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token: REFRESH_TOKEN!,
-    }),
-  });
+  console.log('🔄 Attempting to refresh access token...');
 
-  if (!response.ok) {
-    throw new Error('Failed to get access token');
+  const clientId = process.env.SPOTIFY_CLIENT_ID;
+  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+  const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
+
+  if (!clientId || !clientSecret || !refreshToken) {
+      throw new Error('❌ Missing Spotify credentials in environment variables');
   }
 
+  const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+
+  const response = await fetch("https://accounts.spotify.com/api/token", {
+      method: 'POST',
+      headers: {
+          'Authorization': `Basic ${basicAuth}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+          grant_type: 'refresh_token',
+          refresh_token: refreshToken,
+      }).toString(),
+  });
+
   const data = await response.json();
+  console.log('🔍 Token Refresh Response:', data);
+
+  if (!response.ok) {
+      console.error('❌ Failed to refresh access token:', response.status, data);
+      throw new Error('Failed to refresh access token');
+  }
+
+  console.log('✅ New access token:', data.access_token);
+
   return data.access_token;
 }
 
 // Fetch recently played tracks
 async function getRecentlyPlayed(accessToken: string) {
-  const response = await fetch(`${RECENTLY_PLAYED_ENDPOINT}?limit=1`, {
+  console.log('🔎 Using access token:', accessToken);
+
+  const options = {
+    method: 'GET',
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
     },
-  });
+  };
+
+  console.log('📡 Fetch options:', options);
+
+  const response = await fetch("https://api.spotify.com/v1/me/player/recently-played?limit=2", options);
+
+  console.log('📡 Response headers:', response.headers);
+  console.log('📡 Response status:', response.status, response.statusText);
 
   if (!response.ok) {
+    const errorData = await response.json();
+    console.error('❌ Failed to fetch recently played tracks:', errorData);
     throw new Error('Failed to fetch recently played tracks');
   }
 
@@ -61,6 +89,7 @@ export async function GET() {
 
     // Get access token and fetch recently played tracks
     const accessToken = await getAccessToken();
+    console.log('Access token:', accessToken);
     const recentlyPlayed = await getRecentlyPlayed(accessToken);
 
     return NextResponse.json(recentlyPlayed);

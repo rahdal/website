@@ -42,7 +42,7 @@ export default function Experience() {
 
         {/* Work Experience Section */}
         <section className="mb-12">
-          <h2 className="text-xl font-medium mb-6">experience</h2>
+          <h2 className="text-xl text-gray-400 mb-6">experience</h2>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
               <div key={index} className="flex">
@@ -56,7 +56,7 @@ export default function Experience() {
                   />
                 </div>
                 <div>
-                  <p className="text-white mb-1">{exp.company}</p>
+                  <p className="text-white font-bold mb-1">{exp.company}</p>
                   <p className="mt-2 text-gray-300">{exp.description}</p>
                 </div>
               </div>
@@ -66,7 +66,7 @@ export default function Experience() {
 
         {/* Education Section */}
         <section>
-          <h2 className="text-xl font-medium mb-6">education</h2>
+          <h2 className="text-xl text-gray-400 mb-6">education</h2>
           <div className="space-y-6">
             {education.map((education, index) => (
               <div key={index} className="flex">
@@ -80,7 +80,7 @@ export default function Experience() {
                   />
                 </div>
                 <div>
-                <h3 className="text-white mb-1">{education.title}</h3>
+                <h3 className="text-white font-bold mb-1">{education.title}</h3>
                   <p className="text-gray-400">{education.period}</p>
                 </div>
               </div>

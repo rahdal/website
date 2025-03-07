@@ -1,20 +1,20 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Averia_Serif_Libre, EB_Garamond, Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import RainbowString from "./components/RainbowString"
 
 // Initialize Inter font with proper subsets and display settings
-const inter = Inter({
+const inter = Playfair_Display({
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
 })
 
 export const metadata: Metadata = {
-  title: "Shashank Vemuri",
+  title: "Rahul Dalvi",
   description: "Personal website",
-  generator: 'v0dev'
 }
 
 export default function RootLayout({

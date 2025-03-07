@@ -88,7 +88,7 @@ export default function SpotifyRecent() {
 
   return (
     <div className="mt-8">
-      <h2 className="text-lg font-medium mb-3">recently played</h2>
+      <h2 className="text-lg text-gray-400 mb-3">recently played</h2>
       <a 
         href={recentTrack.external_urls.spotify} 
         target="_blank" 
