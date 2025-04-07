@@ -16,12 +16,12 @@ export default function Home() {
           <p>currently studying computer science at umich.</p>
 
           <p>
-            on campus I'm involved with michigan investment group (vp recruiting) and mrover.
-            I'm also a research assistant in the SOTA lab. find me in the fishbowl, east hall, ugli, or dude.
+            on campus I'm involved with michigan investment group and mrover.
+            I'm also a research assistant in the SOTA lab. most frequented locations: fishbowl, east hall, ugli, dude.
           </p>
 
           <p>
-            general interests: software, ken carson, clothes, design, robotics, and ML.
+            interests: space, software, ken carson, clothes, design, robotics, and ML.
           </p>
         </div>
 

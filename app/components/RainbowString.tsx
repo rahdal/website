@@ -56,7 +56,7 @@ export default function RainbowString() {
     // Calculate diagonal line parameters based on reference size
     // This ensures the same visual appearance regardless of screen size
     const startX = 0;
-    const startY = referenceHeight * 0.8; // Start from lower left
+    const startY = referenceHeight * 0.7; // Start from lower left
     const endX = referenceWidth;
     const endY = referenceHeight * 0.2; // End at upper right
     
