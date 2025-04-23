@@ -1,15 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Averia_Serif_Libre, EB_Garamond, Inter, Playfair_Display } from "next/font/google"
+import { Syne } from "next/font/google"
 import "./globals.css"
 import RainbowString from "./components/RainbowString"
 
-// Initialize Inter font with proper subsets and display settings
-const inter = Playfair_Display({
-  weight: "400",
+// Initialize Syne font with proper subsets and display settings
+const syne = Syne({
+  weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-syne",
 })
 
 export const metadata: Metadata = {
@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className={`bg-black text-white ${inter.className}`}>
+    <html lang="en" className={syne.variable}>
+      <body className={`bg-black text-white ${syne.className}`}>
         <RainbowString />
         {children}
       </body>
