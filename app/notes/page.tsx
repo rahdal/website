@@ -8,7 +8,7 @@ export default async function BlogPage() {
   if (!session.isAuthenticated) {
     redirect(`/sign-in?redirect=${encodeURIComponent('/notes')}`);
   }
-  const posts = getSortedPostsData();
+  const posts = await getSortedPostsData();
 
   return (
     <div className="min-h-screen bg-black bg-opacity-80 text-white flex flex-col items-center p-8 pt-24 relative z-10">

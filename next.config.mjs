@@ -1,3 +1,7 @@
+import createMDX from '@next/mdx'
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
+
 let userConfig = undefined
 try {
   userConfig = await import('./v0-user-next.config')
@@ -21,6 +25,8 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  // We only import MDX as modules; do not treat MDX as pages
+  pageExtensions: ['ts', 'tsx'],
 }
 
 mergeConfig(nextConfig, userConfig)
@@ -45,4 +51,14 @@ function mergeConfig(nextConfig, userConfig) {
   }
 }
 
-export default nextConfig
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [
+      remarkFrontmatter,
+      [remarkMdxFrontmatter, { name: 'frontmatter' }],
+    ],
+  },
+})
+
+export default withMDX(nextConfig)
