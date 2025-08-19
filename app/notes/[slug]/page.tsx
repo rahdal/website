@@ -1,5 +1,8 @@
 import { getAllPostSlugs, getPostData } from "@/lib/blog";
+import { getSession } from "@/lib/auth";
+import { redirect } from "next/navigation";
 import Navigation from '../../components/Navigation';
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 export async function generateStaticParams() {
   const paths = getAllPostSlugs();
@@ -7,6 +10,10 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
+  const session = await getSession();
+  if (!session.isAuthenticated) {
+    redirect(`/sign-in?redirect=${encodeURIComponent(`/notes/${params.slug}`)}`);
+  }
   const post = await getPostData(params.slug);
 
   if (!post) {
@@ -25,10 +32,9 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           <div className="text-gray-400 mb-2">{post.date}</div>
           <div className="text-gray-400 mb-12">{post.description}</div>
 
-          <div 
-            className="space-y-6 blog-content"
-            dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }}
-          />
+          <div className="space-y-6 blog-content">
+            <MDXRemote source={post.content} />
+          </div>
         </article>
       </main>
     </div>

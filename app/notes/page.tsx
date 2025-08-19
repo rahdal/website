@@ -1,7 +1,13 @@
 import { getSortedPostsData } from "@/lib/blog";
+import { getSession } from "@/lib/auth";
+import { redirect } from "next/navigation";
 import Navigation from '../components/Navigation';
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const session = await getSession();
+  if (!session.isAuthenticated) {
+    redirect(`/sign-in?redirect=${encodeURIComponent('/notes')}`);
+  }
   const posts = getSortedPostsData();
 
   return (

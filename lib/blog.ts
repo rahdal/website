@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
 
@@ -17,12 +15,13 @@ export type Post = {
 
 export function getSortedPostsData(): Omit<Post, 'content' | 'contentHtml'>[] {
   // Get file names under /content/blog
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = fs
+    .readdirSync(postsDirectory)
+    .filter((fileName) => fileName.endsWith('.mdx') || fileName.endsWith('.md'));
   const allPostsData = fileNames
-    .filter(fileName => fileName.endsWith('.md'))
     .map(fileName => {
       // Remove ".md" from file name to get slug
-      const slug = fileName.replace(/\.md$/, '');
+      const slug = fileName.replace(/\.(md|mdx)$/, '');
 
       // Read markdown file as string
       const fullPath = path.join(postsDirectory, fileName);
@@ -51,36 +50,33 @@ export function getSortedPostsData(): Omit<Post, 'content' | 'contentHtml'>[] {
 }
 
 export function getAllPostSlugs() {
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = fs
+    .readdirSync(postsDirectory)
+    .filter((fileName) => fileName.endsWith('.mdx') || fileName.endsWith('.md'));
   return fileNames.map(fileName => {
     return {
       params: {
-        slug: fileName.replace(/\.md$/, ''),
+        slug: fileName.replace(/\.(md|mdx)$/, ''),
       },
     };
   });
 }
 
 export async function getPostData(slug: string): Promise<Post> {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const mdxPath = path.join(postsDirectory, `${slug}.mdx`);
+  const mdPath = path.join(postsDirectory, `${slug}.md`);
+  const chosenPath = fs.existsSync(mdxPath) ? mdxPath : mdPath;
+  const fileContents = fs.readFileSync(chosenPath, 'utf8');
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
-
-  // Combine the data with the slug and contentHtml
+  // Return raw MDX/MD content; page will render via MDXRemote
   return {
     slug,
     title: matterResult.data.title,
     date: matterResult.data.date,
     description: matterResult.data.description || '',
     content: matterResult.content,
-    contentHtml,
   };
 } 

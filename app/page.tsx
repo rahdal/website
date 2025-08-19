@@ -25,8 +25,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Spotify Recently Played */}
-
         {/* Social links */}
         <div className="flex space-x-6 mt-12">
           <a href="https://instagram.com/rdalvi_" className="text-white flex items-center" target="_blank">
