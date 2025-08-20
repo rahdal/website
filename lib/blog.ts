@@ -26,7 +26,7 @@ export async function getSortedPostsData(): Promise<PostMeta[]> {
       description: data.description || '',
     });
   }
-  return metas.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return metas.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getAllPostSlugs() {
