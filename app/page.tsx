@@ -13,11 +13,11 @@ export default function Home() {
         <h1 className="text-2xl font-semibold mb-8">Rahul Dalvi</h1>
 
         <div className="space-y-6 mb-12">
-          <p>currently studying computer science at umich.</p>
-
+          <p>studying computer science at umich.</p>
           <p>
-            on campus I'm involved with michigan investment group and mrover.
-            I'm also a research assistant in the SOTA lab. most frequented locations: fishbowl, east hall, ugli, dude.
+            current involvements: michigan investment group, SOTA lab.
+            <br />
+            previously hopsitals @ palantir, mrover, and capital one.
           </p>
 
           <p>
